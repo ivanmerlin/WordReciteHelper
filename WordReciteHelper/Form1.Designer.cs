@@ -34,6 +34,8 @@
             this.RemoveBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.colorBtn = new System.Windows.Forms.Button();
+            this.soundPlayer = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.soundPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // WordLabel
@@ -91,6 +93,16 @@
             this.colorBtn.UseVisualStyleBackColor = true;
             this.colorBtn.Click += new System.EventHandler(this.colorBtn_Click);
             // 
+            // soundPlayer
+            // 
+            this.soundPlayer.Enabled = true;
+            this.soundPlayer.Location = new System.Drawing.Point(13, 200);
+            this.soundPlayer.Name = "soundPlayer";
+            this.soundPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("soundPlayer.OcxState")));
+            this.soundPlayer.Size = new System.Drawing.Size(40, 33);
+            this.soundPlayer.TabIndex = 5;
+            this.soundPlayer.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -98,6 +110,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(680, 234);
             this.ControlBox = false;
+            this.Controls.Add(this.soundPlayer);
             this.Controls.Add(this.colorBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.RemoveBtn);
@@ -111,6 +124,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
+            ((System.ComponentModel.ISupportInitialize)(this.soundPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +137,7 @@
         private System.Windows.Forms.Button RemoveBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button colorBtn;
+        private AxWMPLib.AxWindowsMediaPlayer soundPlayer;
     }
 }
 
