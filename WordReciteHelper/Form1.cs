@@ -20,10 +20,17 @@ namespace WindowsFormsApplication1
         FileStream fs ;
         StreamWriter familiarWordWriter ;
         int timeInterval = 3000;
+        string wordUrl= "http://media.shanbay.com/audio/us/";
         public Form1()
         {
+
             loadGRE3000();
             loadAndSortTheFamiliarWordList();
+            if (!Directory.Exists("sound"))
+            {
+                Directory.CreateDirectory("sound");
+            }
+
             this.Opacity = 0.7;
 
             InitializeComponent();
@@ -74,8 +81,21 @@ namespace WindowsFormsApplication1
         {
             WordLabel.Text = word;
             TransLabel.Text = dictionary[word];
+            playSoundOfWord(word);
         }
-       
+
+        private void playSoundOfWord(string word)
+        {
+            string url = wordUrl + word + ".mp3";
+            string filePath = "sound/" + word + ".mp3";
+            if (!File.Exists(filePath))
+            {
+                DownloadHelper.HttpDownloadFile(url, filePath);
+            }
+            soundPlayer.URL = filePath;
+ 
+        }
+
         private void startDisplayWords()
         {
             Thread.Sleep(10);
